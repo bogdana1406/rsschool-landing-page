@@ -45,8 +45,10 @@ function renderProducts(products, category) {
   const categoryProducts = products.filter((product) => product.category === category);
   const cards = categoryProducts.map(createProductCard);
 
+  menuGrid.classList.remove("menu__grid--expanded");
   menuGrid.replaceChildren(...cards);
   loadMoreButton.hidden = categoryProducts.length <= 4;
+  loadMoreButton.setAttribute("aria-expanded", "false");
 }
 
 function selectCategory(products, selectedButton) {
@@ -66,6 +68,12 @@ function enableCategorySwitching(products) {
   });
 }
 
+function showAdditionalProducts() {
+  menuGrid.classList.add("menu__grid--expanded");
+  loadMoreButton.hidden = true;
+  loadMoreButton.setAttribute("aria-expanded", "true");
+}
+
 async function loadProducts() {
   try {
     const response = await fetch("../data/products.json");
@@ -77,6 +85,7 @@ async function loadProducts() {
     const products = await response.json();
     renderProducts(products, "coffee");
     enableCategorySwitching(products);
+    loadMoreButton.addEventListener("click", showAdditionalProducts);
   } catch (error) {
     menuGrid.textContent = "The menu could not be loaded. Please try again later.";
     console.error(error);

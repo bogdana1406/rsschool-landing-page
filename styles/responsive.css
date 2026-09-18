@@ -123,6 +123,10 @@
     display: none;
   }
 
+  .menu__grid--expanded .product-card--additional {
+    display: flex;
+  }
+
   .menu__load-more {
     display: flex;
     margin: 40px auto 0;

@@ -134,9 +134,16 @@
           </button>
         </div>
 
-        <div class="menu__grid" aria-live="polite"></div>
+        <div class="menu__grid" id="menu-products" aria-live="polite"></div>
 
-        <button class="menu__load-more" type="button" aria-label="Show more menu items">
+        <button
+          class="menu__load-more"
+          type="button"
+          aria-label="Show more menu items"
+          aria-controls="menu-products"
+          aria-expanded="false"
+          hidden
+        >
           <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24">
             <path d="M20 12a8 8 0 1 1-2.3-5.7L20 8.6"></path>
             <path d="M20 4v4.6h-4.6"></path>
