@@ -113,7 +113,8 @@ a:focus-visible {
 }
 
 .header__nav-link,
-.header__menu-link {
+.header__menu-link,
+.header__nav-menu-link {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -125,7 +126,8 @@ a:focus-visible {
 }
 
 .header__nav-link::after,
-.header__menu-link::after {
+.header__menu-link::after,
+.header__nav-menu-link::after {
   position: absolute;
   right: 0;
   bottom: -2px;
@@ -142,9 +144,27 @@ a:focus-visible {
 .header__nav-link:focus-visible::after,
 .header__menu-link:hover::after,
 .header__menu-link:focus-visible::after,
-.header__menu-link--active::after {
+.header__menu-link--active::after,
+.header__nav-menu-link:hover::after,
+.header__nav-menu-link:focus-visible::after {
   transform: scaleX(1);
   transform-origin: left;
+}
+
+.header__nav-menu-item {
+  display: none;
+}
+
+.header__nav-menu-link {
+  gap: 16px;
+}
+
+.header__nav-menu-link svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
 }
 
 .header__actions {
@@ -228,6 +248,15 @@ a:focus-visible {
   height: 1.5px;
   border-radius: 2px;
   background-color: currentColor;
+  transition: transform var(--transition-duration) ease;
+}
+
+.burger--active span:first-child {
+  transform: translateY(4.25px) rotate(45deg);
+}
+
+.burger--active span:last-child {
+  transform: translateY(-4.25px) rotate(-45deg);
 }
 
 .main {
