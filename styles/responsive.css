@@ -9,6 +9,12 @@
   }
 }
 
+@media (max-width: 1100px) {
+  .footer {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 900px) {
   .header__nav,
   .header__menu-link {
@@ -41,6 +47,10 @@
 
   .about__image-box--small {
     display: none;
+  }
+
+  .footer {
+    padding-inline: 60px;
   }
 }
 
@@ -85,5 +95,15 @@
 
   .mobile-app__stores {
     flex-direction: column;
+  }
+
+  .footer {
+    gap: 40px;
+    padding: 60px 16px;
+  }
+
+  .footer__title {
+    font-size: 32px;
+    line-height: 1.25;
   }
 }

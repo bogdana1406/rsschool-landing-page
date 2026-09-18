@@ -1,5 +1,5 @@
 .page--home .main {
-  padding-top: 0;
+  padding: 0 0 100px;
 }
 
 .hero {
@@ -290,4 +290,120 @@
 .mobile-app__image {
   width: 100%;
   height: auto;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 100px;
+  align-items: center;
+  margin-bottom: 40px;
+  padding: 100px;
+  border-radius: 40px;
+  color: var(--color-text-secondary);
+  background-color: var(--color-surface);
+}
+
+.footer__title {
+  margin: 0 0 40px;
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.footer__title em {
+  color: var(--color-accent);
+  font-style: italic;
+}
+
+.social-list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 12px;
+  list-style: none;
+}
+
+.social-link {
+  display: flex;
+  width: 60px;
+  height: 60px;
+  border: 1px solid var(--color-border-light);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  transition:
+    color var(--transition-duration) ease,
+    background-color var(--transition-duration) ease;
+}
+
+.social-link:hover,
+.social-link:focus-visible {
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
+}
+
+.social-link svg,
+.contact-list__item svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+}
+
+.social-list li:last-child .social-link svg {
+  fill: currentColor;
+  stroke: none;
+}
+
+.footer__contacts-title {
+  margin: 0 0 40px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  font-style: normal;
+}
+
+.contact-list__item {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  gap: 8px;
+  color: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+a.contact-list__item {
+  position: relative;
+}
+
+a.contact-list__item::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 28px;
+  height: 2px;
+  background-color: currentColor;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--transition-duration) ease;
+}
+
+a.contact-list__item:hover::after,
+a.contact-list__item:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
