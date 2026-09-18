@@ -74,11 +74,97 @@
     </header>
 
     <main class="main" id="main-content">
-      <div class="container">
-        <h1>Coffee House</h1>
-        <p>The home page layout will be added in the next development stage.</p>
-        <a href="menu/">View the menu</a>
-      </div>
+      <section class="hero container">
+        <div class="hero__content">
+          <h1 class="hero__title"><em>Enjoy</em> premium coffee at our charming cafe</h1>
+          <p class="hero__description">
+            With its inviting atmosphere and delicious coffee options, the Coffee House
+            Resource is a popular destination for coffee lovers and those seeking a warm and
+            inviting space to enjoy their favorite beverage.
+          </p>
+          <a class="hero__menu-link" href="menu/">
+            <span>Menu</span>
+            <svg aria-hidden="true" viewBox="0 0 20 20" width="20" height="20">
+              <path d="M3 3h11v7a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V3Z"></path>
+              <path d="M14 6h1.5a2.5 2.5 0 0 1 0 5H14M6 18h7"></path>
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <section class="favorite container" id="favorite-coffee">
+        <h2 class="favorite__title">Choose your <em>favorite</em> coffee</h2>
+
+        <div class="favorite__slider">
+          <button class="slider-arrow slider-arrow--previous" type="button" aria-label="Previous coffee">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24">
+              <path d="m15 18-6-6 6-6"></path>
+            </svg>
+          </button>
+
+          <div class="favorite__slides">
+            <article class="favorite__slide">
+              <img
+                class="favorite__image"
+                src="assets/images/coffee-slider-1.png"
+                alt="S’mores Frappuccino"
+                width="480"
+                height="480"
+              >
+              <h3 class="favorite__name">S’mores Frappuccino</h3>
+              <p class="favorite__description">
+                This new drink takes an espresso and mixes it with brown sugar and cinnamon
+                before being topped with oat milk.
+              </p>
+              <p class="favorite__price">$5.50</p>
+            </article>
+
+            <article class="favorite__slide" hidden>
+              <img
+                class="favorite__image"
+                src="assets/images/coffee-slider-2.png"
+                alt="Caramel Macchiato"
+                width="480"
+                height="480"
+              >
+              <h3 class="favorite__name">Caramel Macchiato</h3>
+              <p class="favorite__description">
+                Fragrant and unique classic espresso with rich caramel-peanut syrup, with
+                cream under whipped thick foam.
+              </p>
+              <p class="favorite__price">$5.00</p>
+            </article>
+
+            <article class="favorite__slide" hidden>
+              <img
+                class="favorite__image"
+                src="assets/images/coffee-slider-3.png"
+                alt="Ice coffee"
+                width="480"
+                height="480"
+              >
+              <h3 class="favorite__name">Ice coffee</h3>
+              <p class="favorite__description">
+                A popular summer drink that tones and invigorates. Prepared from coffee, milk,
+                and ice.
+              </p>
+              <p class="favorite__price">$4.50</p>
+            </article>
+          </div>
+
+          <button class="slider-arrow slider-arrow--next" type="button" aria-label="Next coffee">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24">
+              <path d="m9 6 6 6-6 6"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="favorite__pagination" aria-label="Slide 1 of 3">
+          <span class="favorite__pagination-item favorite__pagination-item--active"></span>
+          <span class="favorite__pagination-item"></span>
+          <span class="favorite__pagination-item"></span>
+        </div>
+      </section>
     </main>
   </body>
 </html>

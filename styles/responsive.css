@@ -1,4 +1,4 @@
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .header__nav,
   .header__menu-link {
     display: none;
@@ -13,6 +13,18 @@
   }
 }
 
+@media (max-width: 768px) {
+  .hero {
+    padding-inline: 60px;
+  }
+
+  .hero__menu-link svg {
+    width: 20px;
+    margin-left: 8px;
+    opacity: 1;
+  }
+}
+
 @media (max-width: 600px) {
   :root {
     --page-padding: 16px;
@@ -20,5 +32,29 @@
 
   .header__actions {
     gap: 8px;
+  }
+
+  .hero {
+    min-height: 552px;
+    padding: 60px 16px;
+    background-position: 62% center;
+  }
+
+  .hero__title {
+    font-size: 42px;
+    line-height: 1.15;
+  }
+
+  .favorite__title {
+    font-size: 32px;
+    line-height: 1.25;
+  }
+
+  .favorite__slider {
+    display: block;
+  }
+
+  .slider-arrow {
+    display: none;
   }
 }
