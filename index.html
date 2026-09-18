@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="styles/responsive.css">
     <script src="scripts/theme.js" defer></script>
     <script src="scripts/burger-menu.js" defer></script>
+    <script src="scripts/slider.js" defer></script>
   </head>
   <body class="page page--home">
     <header class="header">
@@ -119,8 +120,12 @@
             </svg>
           </button>
 
-          <div class="favorite__slides">
-            <article class="favorite__slide">
+          <div class="favorite__slides" aria-live="polite">
+            <article
+              class="favorite__slide favorite__slide--active"
+              aria-roledescription="slide"
+              aria-label="1 of 3"
+            >
               <img
                 class="favorite__image"
                 src="assets/images/coffee-slider-1.png"
@@ -136,7 +141,12 @@
               <p class="favorite__price">$5.50</p>
             </article>
 
-            <article class="favorite__slide" hidden>
+            <article
+              class="favorite__slide"
+              aria-roledescription="slide"
+              aria-label="2 of 3"
+              aria-hidden="true"
+            >
               <img
                 class="favorite__image"
                 src="assets/images/coffee-slider-2.png"
@@ -152,7 +162,12 @@
               <p class="favorite__price">$5.00</p>
             </article>
 
-            <article class="favorite__slide" hidden>
+            <article
+              class="favorite__slide"
+              aria-roledescription="slide"
+              aria-label="3 of 3"
+              aria-hidden="true"
+            >
               <img
                 class="favorite__image"
                 src="assets/images/coffee-slider-3.png"
@@ -177,9 +192,22 @@
         </div>
 
         <div class="favorite__pagination" role="group" aria-label="Slide 1 of 3">
-          <span class="favorite__pagination-item favorite__pagination-item--active"></span>
-          <span class="favorite__pagination-item"></span>
-          <span class="favorite__pagination-item"></span>
+          <button
+            class="favorite__pagination-item favorite__pagination-item--active"
+            type="button"
+            aria-label="Show slide 1"
+            aria-current="true"
+          ></button>
+          <button
+            class="favorite__pagination-item"
+            type="button"
+            aria-label="Show slide 2"
+          ></button>
+          <button
+            class="favorite__pagination-item"
+            type="button"
+            aria-label="Show slide 3"
+          ></button>
         </div>
       </section>
 
