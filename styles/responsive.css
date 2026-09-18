@@ -23,6 +23,14 @@
     margin-left: 8px;
     opacity: 1;
   }
+
+  .about__gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .about__image-box--small {
+    display: none;
+  }
 }
 
 @media (max-width: 600px) {
@@ -45,7 +53,8 @@
     line-height: 1.15;
   }
 
-  .favorite__title {
+  .favorite__title,
+  .about__title {
     font-size: 32px;
     line-height: 1.25;
   }
