@@ -20,7 +20,8 @@
 
 .hero__title,
 .favorite__title,
-.about__title {
+.about__title,
+.mobile-app__title {
   margin: 0;
   font-size: 60px;
   font-weight: 600;
@@ -34,7 +35,8 @@
 
 .hero__title em,
 .favorite__title em,
-.about__title em {
+.about__title em,
+.mobile-app__title em {
   color: var(--color-accent);
   font-style: italic;
 }
@@ -210,4 +212,82 @@
 
 .about__image-box:hover .about__image {
   transform: scale(1);
+}
+
+.mobile-app {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 630px);
+  gap: 100px;
+  align-items: center;
+  padding-top: 100px;
+}
+
+.mobile-app__description {
+  margin: 40px 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.mobile-app__stores {
+  display: flex;
+  gap: 20px;
+}
+
+.store-link {
+  display: flex;
+  flex-shrink: 0;
+  width: 200px;
+  height: 64px;
+  padding: 11px 20px;
+  border: 1px solid var(--color-border-dark);
+  border-radius: 100px;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition:
+    color var(--transition-duration) ease,
+    background-color var(--transition-duration) ease;
+}
+
+.store-link:hover,
+.store-link:focus-visible {
+  color: var(--color-text-secondary);
+  background-color: var(--color-surface);
+}
+
+.store-link svg {
+  flex: 0 0 36px;
+  fill: currentColor;
+}
+
+.store-link .store-link__play-icon {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+}
+
+.store-link__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.store-link__eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.store-link__name {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.mobile-app__image {
+  width: 100%;
+  height: auto;
 }

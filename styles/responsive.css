@@ -1,3 +1,14 @@
+@media (max-width: 1250px) {
+  .mobile-app {
+    grid-template-columns: 1fr;
+  }
+
+  .mobile-app__image {
+    width: min(100%, 630px);
+    justify-self: center;
+  }
+}
+
 @media (max-width: 900px) {
   .header__nav,
   .header__menu-link {
@@ -54,7 +65,8 @@
   }
 
   .favorite__title,
-  .about__title {
+  .about__title,
+  .mobile-app__title {
     font-size: 32px;
     line-height: 1.25;
   }
@@ -65,5 +77,13 @@
 
   .slider-arrow {
     display: none;
+  }
+
+  .mobile-app {
+    gap: 40px;
+  }
+
+  .mobile-app__stores {
+    flex-direction: column;
   }
 }
