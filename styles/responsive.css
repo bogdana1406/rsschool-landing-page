@@ -1,3 +1,10 @@
+@media (max-width: 1300px) {
+  .menu__grid {
+    grid-template-columns: repeat(2, 310px);
+    justify-content: center;
+  }
+}
+
 @media (max-width: 1250px) {
   .mobile-app {
     grid-template-columns: 1fr;
@@ -47,6 +54,15 @@
 
   .about__image-box--small {
     display: none;
+  }
+
+  .product-card--additional {
+    display: none;
+  }
+
+  .menu__load-more {
+    display: flex;
+    margin: 40px auto 0;
   }
 
   .footer {
@@ -105,5 +121,22 @@
   .footer__title {
     font-size: 32px;
     line-height: 1.25;
+  }
+
+  .menu__title {
+    font-size: 32px;
+    line-height: 1.25;
+  }
+
+  .menu__categories {
+    gap: 8px;
+  }
+
+  .category-button {
+    padding-right: 8px;
+  }
+
+  .menu__grid {
+    grid-template-columns: 310px;
   }
 }
