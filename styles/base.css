@@ -85,33 +85,19 @@ a:focus-visible {
 }
 
 .logo {
-  display: inline-flex;
-  width: 60px;
+  display: block;
+  width: 100px;
   height: 60px;
   grid-column: 1;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   justify-self: start;
   color: var(--color-text-primary);
-  line-height: 1;
   text-decoration: none;
 }
 
-.logo__wordmark {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 15px;
-  font-style: italic;
-  font-weight: 700;
-  letter-spacing: -0.8px;
-}
-
-.logo__caption {
-  margin-top: 5px;
-  font-size: 7px;
-  font-weight: 600;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
+.logo__image {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .header__nav-list {
