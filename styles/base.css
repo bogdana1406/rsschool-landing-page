@@ -1,0 +1,67 @@
+:root {
+  color-scheme: light;
+  --color-background: #e1d4c9;
+  --color-surface: #665f55;
+  --color-text-primary: #403f3d;
+  --color-text-secondary: #e1d4c9;
+  --color-accent: #b0907a;
+  --color-border-light: #c1b6ad;
+  --color-border-dark: #665f55;
+  --content-width: 1360px;
+  --page-padding: 40px;
+  --transition-duration: 0.3s;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --color-background: #403f3d;
+  --color-surface: #665f55;
+  --color-text-primary: #e1d4c9;
+  --color-text-secondary: #e1d4c9;
+  --color-border-light: #665f55;
+  --color-border-dark: #c1b6ad;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--color-text-primary);
+  font-family: Inter, Arial, sans-serif;
+  background-color: var(--color-background);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+.container {
+  width: min(100% - (2 * var(--page-padding)), var(--content-width));
+  margin-inline: auto;
+}
+
+.main {
+  padding-block: 40px;
+}
