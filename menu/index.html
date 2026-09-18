@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="../styles/responsive.css">
     <script src="../scripts/theme.js" defer></script>
     <script src="../scripts/burger-menu.js" defer></script>
+    <script src="../scripts/menu.js" defer></script>
   </head>
   <body class="page page--menu">
     <header class="header">
@@ -128,95 +129,7 @@
           </button>
         </div>
 
-        <div class="menu__grid">
-          <article class="product-card">
-            <div class="product-card__image-box">
-              <img class="product-card__image" src="../assets/images/coffee-1.jpg" alt="Irish coffee" width="340" height="340">
-            </div>
-            <div class="product-card__content">
-              <h2 class="product-card__title">Irish coffee</h2>
-              <p class="product-card__description">Fragrant black coffee with Jameson Irish whiskey and whipped milk</p>
-              <p class="product-card__price">$7.00</p>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-card__image-box">
-              <img class="product-card__image" src="../assets/images/coffee-2.jpg" alt="Kahlua coffee" width="340" height="340">
-            </div>
-            <div class="product-card__content">
-              <h2 class="product-card__title">Kahlua coffee</h2>
-              <p class="product-card__description">Classic coffee with milk and Kahlua liqueur under a cap of frothed milk</p>
-              <p class="product-card__price">$7.00</p>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-card__image-box">
-              <img class="product-card__image" src="../assets/images/coffee-3.jpg" alt="Honey raf" width="340" height="340">
-            </div>
-            <div class="product-card__content">
-              <h2 class="product-card__title">Honey raf</h2>
-              <p class="product-card__description">Espresso with frothed milk, cream and aromatic honey</p>
-              <p class="product-card__price">$5.50</p>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-card__image-box">
-              <img class="product-card__image" src="../assets/images/coffee-4.jpg" alt="Ice cappuccino" width="340" height="340">
-            </div>
-            <div class="product-card__content">
-              <h2 class="product-card__title">Ice cappuccino</h2>
-              <p class="product-card__description">Cappuccino with soft thick foam in summer version with ice</p>
-              <p class="product-card__price">$5.00</p>
-            </div>
-          </article>
-
-          <article class="product-card product-card--additional">
-            <div class="product-card__image-box">
-              <img class="product-card__image" src="../assets/images/coffee-5.jpg" alt="Espresso" width="340" height="340">
-            </div>
-            <div class="product-card__content">
-              <h2 class="product-card__title">Espresso</h2>
-              <p class="product-card__description">Classic black coffee</p>
-              <p class="product-card__price">$4.50</p>
-            </div>
-          </article>
-
-          <article class="product-card product-card--additional">
-            <div class="product-card__image-box">
-              <img class="product-card__image" src="../assets/images/coffee-6.jpg" alt="Latte" width="340" height="340">
-            </div>
-            <div class="product-card__content">
-              <h2 class="product-card__title">Latte</h2>
-              <p class="product-card__description">Espresso coffee with the addition of steamed milk and dense milk foam</p>
-              <p class="product-card__price">$5.50</p>
-            </div>
-          </article>
-
-          <article class="product-card product-card--additional">
-            <div class="product-card__image-box">
-              <img class="product-card__image" src="../assets/images/coffee-7.jpg" alt="Latte macchiato" width="340" height="340">
-            </div>
-            <div class="product-card__content">
-              <h2 class="product-card__title">Latte macchiato</h2>
-              <p class="product-card__description">Espresso with frothed milk and chocolate</p>
-              <p class="product-card__price">$5.50</p>
-            </div>
-          </article>
-
-          <article class="product-card product-card--additional">
-            <div class="product-card__image-box">
-              <img class="product-card__image" src="../assets/images/coffee-8.jpg" alt="Coffee with cognac" width="340" height="340">
-            </div>
-            <div class="product-card__content">
-              <h2 class="product-card__title">Coffee with cognac</h2>
-              <p class="product-card__description">Fragrant black coffee with cognac and whipped cream</p>
-              <p class="product-card__price">$6.50</p>
-            </div>
-          </article>
-        </div>
+        <div class="menu__grid" aria-live="polite"></div>
 
         <button class="menu__load-more" type="button" aria-label="Show more menu items">
           <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24">
