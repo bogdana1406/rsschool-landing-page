@@ -1,4 +1,6 @@
 const menuGrid = document.querySelector(".menu__grid");
+const categoryButtons = document.querySelectorAll(".category-button");
+const loadMoreButton = document.querySelector(".menu__load-more");
 
 function createElement(tagName, className, textContent) {
   const element = document.createElement(tagName);
@@ -44,6 +46,24 @@ function renderProducts(products, category) {
   const cards = categoryProducts.map(createProductCard);
 
   menuGrid.replaceChildren(...cards);
+  loadMoreButton.hidden = categoryProducts.length <= 4;
+}
+
+function selectCategory(products, selectedButton) {
+  categoryButtons.forEach((button) => {
+    const isActive = button === selectedButton;
+
+    button.classList.toggle("category-button--active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
+
+  renderProducts(products, selectedButton.dataset.category);
+}
+
+function enableCategorySwitching(products) {
+  categoryButtons.forEach((button) => {
+    button.addEventListener("click", () => selectCategory(products, button));
+  });
 }
 
 async function loadProducts() {
@@ -56,6 +76,7 @@ async function loadProducts() {
 
     const products = await response.json();
     renderProducts(products, "coffee");
+    enableCategorySwitching(products);
   } catch (error) {
     menuGrid.textContent = "The menu could not be loaded. Please try again later.";
     console.error(error);

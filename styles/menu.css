@@ -153,6 +153,10 @@
     background-color var(--transition-duration) ease;
 }
 
+.menu__load-more[hidden] {
+  display: none;
+}
+
 .menu__load-more:hover,
 .menu__load-more:focus-visible {
   color: var(--color-text-secondary);
