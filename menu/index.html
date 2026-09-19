@@ -152,6 +152,46 @@
       </section>
     </main>
 
+    <dialog
+      class="product-modal"
+      aria-labelledby="product-modal-title"
+      aria-describedby="product-modal-description"
+    >
+      <div class="product-modal__layout">
+        <div class="product-modal__image-box">
+          <img
+            class="product-modal__image"
+            src="../assets/images/coffee-1.jpg"
+            alt="Irish coffee"
+            width="310"
+            height="310"
+          >
+        </div>
+
+        <div class="product-modal__content">
+          <h2 class="product-modal__title" id="product-modal-title">Irish coffee</h2>
+          <p class="product-modal__description" id="product-modal-description">
+            Fragrant black coffee with Jameson Irish whiskey and whipped milk
+          </p>
+
+          <div class="product-modal__total">
+            <span>Total:</span>
+            <span class="product-modal__price">$7.00</span>
+          </div>
+
+          <p class="product-modal__note">
+            <svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16">
+              <circle cx="8" cy="8" r="6.5"></circle>
+              <path d="M8 7.2v3.6M8 4.7h.01"></path>
+            </svg>
+            <span>The cost is not final. Download our mobile app to see the final price and place your order.</span>
+          </p>
+
+          <button class="product-modal__close" type="button">Close</button>
+        </div>
+      </div>
+    </dialog>
+
     <footer class="footer container" id="contacts">
       <div class="footer__socials">
         <h2 class="footer__title">Sip, Savor, Smile. <em>It’s coffee time!</em></h2>

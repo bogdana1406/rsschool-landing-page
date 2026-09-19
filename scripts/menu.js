@@ -1,6 +1,13 @@
 const menuGrid = document.querySelector(".menu__grid");
 const categoryButtons = document.querySelectorAll(".category-button");
 const loadMoreButton = document.querySelector(".menu__load-more");
+const productModal = document.querySelector(".product-modal");
+const modalImage = productModal.querySelector(".product-modal__image");
+const modalTitle = productModal.querySelector(".product-modal__title");
+const modalDescription = productModal.querySelector(".product-modal__description");
+const modalPrice = productModal.querySelector(".product-modal__price");
+const modalCloseButton = productModal.querySelector(".product-modal__close");
+let modalTrigger = null;
 
 function createElement(tagName, className, textContent) {
   const element = document.createElement(tagName);
@@ -29,7 +36,11 @@ function createProductCard(product, index) {
     card.classList.add("product-card--additional");
   }
 
-  image.src = `../assets/images/${product.category}-${index + 1}.jpg`;
+  card.tabIndex = 0;
+  card.setAttribute("role", "button");
+  card.setAttribute("aria-label", `Open details for ${product.name}`);
+
+  image.src = getProductImagePath(product, index);
   image.alt = product.name;
   image.width = 340;
   image.height = 340;
@@ -37,8 +48,34 @@ function createProductCard(product, index) {
   imageBox.append(image);
   content.append(title, description, price);
   card.append(imageBox, content);
+  card.addEventListener("click", () => openProductModal(product, index, card));
+  card.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openProductModal(product, index, card);
+    }
+  });
 
   return card;
+}
+
+function getProductImagePath(product, index) {
+  return `../assets/images/${product.category}-${index + 1}.jpg`;
+}
+
+function openProductModal(product, index, trigger) {
+  modalTrigger = trigger;
+  modalImage.src = getProductImagePath(product, index);
+  modalImage.alt = product.name;
+  modalTitle.textContent = product.name;
+  modalDescription.textContent = product.description;
+  modalPrice.textContent = `$${product.price}`;
+  document.body.classList.add("modal-open");
+  productModal.showModal();
+}
+
+function closeProductModal() {
+  productModal.close();
 }
 
 function renderProducts(products, category) {
@@ -73,6 +110,20 @@ function showAdditionalProducts() {
   loadMoreButton.hidden = true;
   loadMoreButton.setAttribute("aria-expanded", "true");
 }
+
+modalCloseButton.addEventListener("click", closeProductModal);
+
+productModal.addEventListener("click", (event) => {
+  if (event.target === productModal) {
+    closeProductModal();
+  }
+});
+
+productModal.addEventListener("close", () => {
+  document.body.classList.remove("modal-open");
+  modalTrigger?.focus();
+  modalTrigger = null;
+});
 
 async function loadProducts() {
   try {

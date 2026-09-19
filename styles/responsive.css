@@ -206,4 +206,25 @@
   .menu__grid {
     grid-template-columns: 310px;
   }
+
+  .product-modal {
+    width: min(calc(100% - 32px), 342px);
+    max-height: calc(100dvh - 32px);
+  }
+
+  .product-modal__layout {
+    display: block;
+  }
+
+  .product-modal__image-box {
+    display: none;
+  }
+
+  .product-modal__content {
+    min-height: 0;
+  }
+
+  .product-modal__total {
+    margin-top: 20px;
+  }
 }

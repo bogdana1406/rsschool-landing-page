@@ -89,6 +89,13 @@
   border: 1px solid var(--color-border-light);
   border-radius: 40px;
   flex-direction: column;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.product-card:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
 }
 
 .product-card__image-box {
@@ -159,6 +166,114 @@
 
 .menu__load-more:hover,
 .menu__load-more:focus-visible {
+  color: var(--color-text-secondary);
+  background-color: var(--color-surface);
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+.product-modal {
+  width: min(calc(100% - 80px), 800px);
+  max-height: calc(100dvh - 80px);
+  padding: 16px;
+  border: 0;
+  border-radius: 40px;
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
+}
+
+.product-modal::backdrop {
+  background-color: rgb(64 63 61 / 80%);
+}
+
+.product-modal__layout {
+  display: grid;
+  grid-template-columns: 310px minmax(0, 1fr);
+  gap: 20px;
+}
+
+.product-modal__image-box {
+  overflow: hidden;
+  width: 310px;
+  height: 310px;
+  border-radius: 40px;
+}
+
+.product-modal__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.1);
+}
+
+.product-modal__content {
+  display: flex;
+  min-width: 0;
+  min-height: 310px;
+  flex-direction: column;
+}
+
+.product-modal__title,
+.product-modal__total {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.product-modal__description {
+  margin: 12px 0 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.product-modal__total {
+  display: flex;
+  margin-top: auto;
+  justify-content: space-between;
+}
+
+.product-modal__note {
+  display: flex;
+  margin: 12px 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border-light);
+  gap: 8px;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.product-modal__note svg {
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.2;
+}
+
+.product-modal__close {
+  width: 100%;
+  min-height: 44px;
+  padding: 9px 16px;
+  border: 1px solid var(--color-border-dark);
+  border-radius: 100px;
+  color: var(--color-text-primary);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  background-color: transparent;
+  cursor: pointer;
+  transition:
+    color var(--transition-duration) ease,
+    background-color var(--transition-duration) ease;
+}
+
+.product-modal__close:hover,
+.product-modal__close:focus-visible {
   color: var(--color-text-secondary);
   background-color: var(--color-surface);
 }
