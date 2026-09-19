@@ -249,6 +249,15 @@
   gap: 8px;
 }
 
+.product-modal__additives {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-modal__additives .product-option {
+  padding-inline: 8px;
+}
+
 .product-option {
   display: inline-flex;
   overflow: hidden;

@@ -6,11 +6,13 @@ const modalImage = productModal.querySelector(".product-modal__image");
 const modalTitle = productModal.querySelector(".product-modal__title");
 const modalDescription = productModal.querySelector(".product-modal__description");
 const modalSizes = productModal.querySelector(".product-modal__sizes");
+const modalAdditives = productModal.querySelector(".product-modal__additives");
 const modalPrice = productModal.querySelector(".product-modal__price");
 const modalCloseButton = productModal.querySelector(".product-modal__close");
 let modalTrigger = null;
 let selectedProduct = null;
 let selectedSize = "s";
+const selectedAdditives = new Set();
 
 function createElement(tagName, className, textContent) {
   const element = document.createElement(tagName);
@@ -103,22 +105,61 @@ function selectSize(sizeKey) {
   updateTotalPrice();
 }
 
+function createAdditiveButton(additive, index) {
+  const button = createElement("button", "product-option");
+  const key = createElement("span", "product-option__key", String(index + 1));
+  const label = createElement("span", "product-option__label", additive.name);
+
+  button.type = "button";
+  button.dataset.additive = String(index);
+  button.setAttribute("aria-pressed", "false");
+  button.append(key, label);
+  button.addEventListener("click", () => toggleAdditive(index, button));
+
+  return button;
+}
+
+function renderAdditiveOptions(product) {
+  const additiveButtons = product.additives.map(createAdditiveButton);
+
+  modalAdditives.replaceChildren(...additiveButtons);
+}
+
+function toggleAdditive(index, button) {
+  if (selectedAdditives.has(index)) {
+    selectedAdditives.delete(index);
+  } else {
+    selectedAdditives.add(index);
+  }
+
+  const isSelected = selectedAdditives.has(index);
+  button.classList.toggle("product-option--active", isSelected);
+  button.setAttribute("aria-pressed", String(isSelected));
+  updateTotalPrice();
+}
+
 function updateTotalPrice() {
   const basePrice = Number(selectedProduct.price);
   const sizePrice = Number(selectedProduct.sizes[selectedSize]["add-price"]);
+  const additivesPrice = [...selectedAdditives].reduce(
+    (total, index) => total + Number(selectedProduct.additives[index]["add-price"]),
+    0,
+  );
 
-  modalPrice.textContent = `$${(basePrice + sizePrice).toFixed(2)}`;
+  modalPrice.textContent = `$${(basePrice + sizePrice + additivesPrice).toFixed(2)}`;
 }
 
 function openProductModal(product, index, trigger) {
   modalTrigger = trigger;
   selectedProduct = product;
   selectedSize = "s";
+  selectedAdditives.clear();
   modalImage.src = getProductImagePath(product, index);
   modalImage.alt = product.name;
   modalTitle.textContent = product.name;
   modalDescription.textContent = product.description;
   renderSizeOptions(product);
+  renderAdditiveOptions(product);
   updateTotalPrice();
   document.body.classList.add("modal-open");
   productModal.showModal();
