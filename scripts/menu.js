@@ -29,7 +29,7 @@ function createElement(tagName, className, textContent) {
 }
 
 function createProductCard(product, index) {
-  const card = createElement("article", "product-card");
+  const card = createElement("article", "product-card product-card--entering");
   const imageBox = createElement("div", "product-card__image-box");
   const image = createElement("img", "product-card__image");
   const content = createElement("div", "product-card__content");
@@ -42,6 +42,7 @@ function createProductCard(product, index) {
   }
 
   card.tabIndex = 0;
+  card.style.setProperty("--animation-order", index);
   card.setAttribute("role", "button");
   card.setAttribute("aria-label", `Open details for ${product.name}`);
 
@@ -197,9 +198,22 @@ function enableCategorySwitching(products) {
 }
 
 function showAdditionalProducts() {
+  const additionalCards = menuGrid.querySelectorAll(".product-card--additional");
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   menuGrid.classList.add("menu__grid--expanded");
+  additionalCards.forEach((card, index) => {
+    card.style.setProperty("--animation-order", index);
+    card.classList.add("product-card--revealed");
+  });
   loadMoreButton.hidden = true;
   loadMoreButton.setAttribute("aria-expanded", "true");
+
+  if (!prefersReducedMotion) {
+    requestAnimationFrame(() => {
+      additionalCards[0]?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
 }
 
 modalCloseButton.addEventListener("click", closeProductModal);
