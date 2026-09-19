@@ -5,9 +5,12 @@ const productModal = document.querySelector(".product-modal");
 const modalImage = productModal.querySelector(".product-modal__image");
 const modalTitle = productModal.querySelector(".product-modal__title");
 const modalDescription = productModal.querySelector(".product-modal__description");
+const modalSizes = productModal.querySelector(".product-modal__sizes");
 const modalPrice = productModal.querySelector(".product-modal__price");
 const modalCloseButton = productModal.querySelector(".product-modal__close");
 let modalTrigger = null;
+let selectedProduct = null;
+let selectedSize = "s";
 
 function createElement(tagName, className, textContent) {
   const element = document.createElement(tagName);
@@ -63,13 +66,60 @@ function getProductImagePath(product, index) {
   return `../assets/images/${product.category}-${index + 1}.jpg`;
 }
 
+function createSizeButton(sizeKey, sizeData) {
+  const button = createElement("button", "product-option");
+  const key = createElement("span", "product-option__key", sizeKey.toUpperCase());
+  const label = createElement("span", "product-option__label", sizeData.size);
+  const isSelected = sizeKey === selectedSize;
+
+  button.type = "button";
+  button.dataset.size = sizeKey;
+  button.classList.toggle("product-option--active", isSelected);
+  button.setAttribute("aria-pressed", String(isSelected));
+  button.append(key, label);
+  button.addEventListener("click", () => selectSize(sizeKey));
+
+  return button;
+}
+
+function renderSizeOptions(product) {
+  const sizeButtons = Object.entries(product.sizes).map(([sizeKey, sizeData]) =>
+    createSizeButton(sizeKey, sizeData),
+  );
+
+  modalSizes.replaceChildren(...sizeButtons);
+}
+
+function selectSize(sizeKey) {
+  selectedSize = sizeKey;
+
+  modalSizes.querySelectorAll(".product-option").forEach((button) => {
+    const isSelected = button.dataset.size === selectedSize;
+
+    button.classList.toggle("product-option--active", isSelected);
+    button.setAttribute("aria-pressed", String(isSelected));
+  });
+
+  updateTotalPrice();
+}
+
+function updateTotalPrice() {
+  const basePrice = Number(selectedProduct.price);
+  const sizePrice = Number(selectedProduct.sizes[selectedSize]["add-price"]);
+
+  modalPrice.textContent = `$${(basePrice + sizePrice).toFixed(2)}`;
+}
+
 function openProductModal(product, index, trigger) {
   modalTrigger = trigger;
+  selectedProduct = product;
+  selectedSize = "s";
   modalImage.src = getProductImagePath(product, index);
   modalImage.alt = product.name;
   modalTitle.textContent = product.name;
   modalDescription.textContent = product.description;
-  modalPrice.textContent = `$${product.price}`;
+  renderSizeOptions(product);
+  updateTotalPrice();
   document.body.classList.add("modal-open");
   productModal.showModal();
 }
