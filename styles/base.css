@@ -7,6 +7,7 @@
   --color-accent: #b0907a;
   --color-border-light: #c1b6ad;
   --color-border-dark: #665f55;
+  --color-border-on-surface: #c1b6ad;
   --content-width: 1360px;
   --page-padding: 40px;
   --transition-duration: 0.3s;
@@ -299,7 +300,7 @@ a:focus-visible {
   display: flex;
   width: 60px;
   height: 60px;
-  border: 1px solid var(--color-border-light);
+  border: 1px solid var(--color-border-on-surface);
   border-radius: 50%;
   align-items: center;
   justify-content: center;
