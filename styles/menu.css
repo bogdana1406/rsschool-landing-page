@@ -334,17 +334,22 @@
   white-space: nowrap;
 }
 
-.product-option:hover,
-.product-option:focus-visible,
 .product-option--active {
   color: var(--color-text-secondary);
   background-color: var(--color-surface);
 }
 
-.product-option:hover .product-option__key,
-.product-option:focus-visible .product-option__key,
 .product-option--active .product-option__key {
   background-color: var(--color-background);
+}
+
+.product-option:hover:not(.product-option--active) {
+  border-color: var(--color-surface);
+}
+
+.product-option:focus-visible {
+  outline: 2px solid var(--color-surface);
+  outline-offset: 2px;
 }
 
 .product-modal__total {
