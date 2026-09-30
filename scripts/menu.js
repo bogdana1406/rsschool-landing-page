@@ -2,7 +2,8 @@ const menuGrid = document.querySelector(".menu__grid");
 const categoryButtons = document.querySelectorAll(".category-button");
 const loadMoreButton = document.querySelector(".menu__load-more");
 const productModal = document.querySelector(".product-modal");
-const modalImage = productModal.querySelector(".product-modal__image");
+const modalImageBox = productModal.querySelector(".product-modal__image-box");
+const modalImage = createElement("img", "product-modal__image");
 const modalTitle = productModal.querySelector(".product-modal__title");
 const modalDescription = productModal.querySelector(".product-modal__description");
 const modalSizes = productModal.querySelector(".product-modal__sizes");
@@ -27,6 +28,10 @@ function createElement(tagName, className, textContent) {
 
   return element;
 }
+
+modalImage.width = 310;
+modalImage.height = 310;
+modalImageBox.append(modalImage);
 
 function createProductCard(product, index) {
   const card = createElement("article", "product-card product-card--entering");
