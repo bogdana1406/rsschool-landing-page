@@ -224,7 +224,14 @@ function showAdditionalProducts() {
 modalCloseButton.addEventListener("click", closeProductModal);
 
 productModal.addEventListener("click", (event) => {
-  if (event.target === productModal) {
+  const modalRect = productModal.getBoundingClientRect();
+  const isOutsideModal =
+    event.clientX < modalRect.left ||
+    event.clientX > modalRect.right ||
+    event.clientY < modalRect.top ||
+    event.clientY > modalRect.bottom;
+
+  if (event.target === productModal && isOutsideModal) {
     closeProductModal();
   }
 });
