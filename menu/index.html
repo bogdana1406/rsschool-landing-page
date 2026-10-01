@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="../styles/menu.css">
     <link rel="stylesheet" href="../styles/responsive.css">
     <script src="../scripts/theme.js" defer></script>
+    <script src="../scripts/burger-menu.js" defer></script>
+    <script src="../scripts/menu.js" defer></script>
   </head>
   <body class="page page--menu">
     <header class="header">
@@ -35,6 +37,15 @@
             <li><a class="header__nav-link" href="../#about">About</a></li>
             <li><a class="header__nav-link" href="../#mobile-app">Mobile app</a></li>
             <li><a class="header__nav-link" href="#contacts">Contact us</a></li>
+            <li class="header__nav-menu-item">
+              <a class="header__nav-menu-link" href="./" aria-current="page">
+                <span>Menu</span>
+                <svg aria-hidden="true" viewBox="0 0 20 20" width="40" height="40">
+                  <path d="M3 3h11v7a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V3Z"></path>
+                  <path d="M14 6h1.5a2.5 2.5 0 0 1 0 5H14M6 18h7"></path>
+                </svg>
+              </a>
+            </li>
           </ul>
         </nav>
 
@@ -87,7 +98,12 @@
         </h1>
 
         <div class="menu__categories" role="group" aria-label="Menu categories">
-          <button class="category-button category-button--active" type="button" aria-pressed="true">
+          <button
+            class="category-button category-button--active"
+            type="button"
+            data-category="coffee"
+            aria-pressed="true"
+          >
             <span class="category-button__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="16" height="16">
                 <path d="M4 5h13v8a6 6 0 0 1-6 6H10a6 6 0 0 1-6-6V5Z"></path>
@@ -97,7 +113,7 @@
             <span>Coffee</span>
           </button>
 
-          <button class="category-button" type="button" aria-pressed="false">
+          <button class="category-button" type="button" data-category="tea" aria-pressed="false">
             <span class="category-button__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="16" height="16">
                 <path d="M6 10h12l-1 8H7l-1-8ZM9 10V7a3 3 0 0 1 6 0v3"></path>
@@ -107,7 +123,7 @@
             <span>Tea</span>
           </button>
 
-          <button class="category-button" type="button" aria-pressed="false">
+          <button class="category-button" type="button" data-category="dessert" aria-pressed="false">
             <span class="category-button__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="16" height="16">
                 <path d="M4 12h16l-2 8H6l-2-8Z"></path>
@@ -118,97 +134,16 @@
           </button>
         </div>
 
-        <div class="menu__grid">
-          <article class="product-card">
-            <div class="product-card__image-box">
-              <img class="product-card__image" src="../assets/images/coffee-1.jpg" alt="Irish coffee" width="340" height="340">
-            </div>
-            <div class="product-card__content">
-              <h2 class="product-card__title">Irish coffee</h2>
-              <p class="product-card__description">Fragrant black coffee with Jameson Irish whiskey and whipped milk</p>
-              <p class="product-card__price">$7.00</p>
-            </div>
-          </article>
+        <div class="menu__grid" id="menu-products" aria-live="polite"></div>
 
-          <article class="product-card">
-            <div class="product-card__image-box">
-              <img class="product-card__image" src="../assets/images/coffee-2.jpg" alt="Kahlua coffee" width="340" height="340">
-            </div>
-            <div class="product-card__content">
-              <h2 class="product-card__title">Kahlua coffee</h2>
-              <p class="product-card__description">Classic coffee with milk and Kahlua liqueur under a cap of frothed milk</p>
-              <p class="product-card__price">$7.00</p>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-card__image-box">
-              <img class="product-card__image" src="../assets/images/coffee-3.jpg" alt="Honey raf" width="340" height="340">
-            </div>
-            <div class="product-card__content">
-              <h2 class="product-card__title">Honey raf</h2>
-              <p class="product-card__description">Espresso with frothed milk, cream and aromatic honey</p>
-              <p class="product-card__price">$5.50</p>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-card__image-box">
-              <img class="product-card__image" src="../assets/images/coffee-4.jpg" alt="Ice cappuccino" width="340" height="340">
-            </div>
-            <div class="product-card__content">
-              <h2 class="product-card__title">Ice cappuccino</h2>
-              <p class="product-card__description">Cappuccino with soft thick foam in summer version with ice</p>
-              <p class="product-card__price">$5.00</p>
-            </div>
-          </article>
-
-          <article class="product-card product-card--additional">
-            <div class="product-card__image-box">
-              <img class="product-card__image" src="../assets/images/coffee-5.jpg" alt="Espresso" width="340" height="340">
-            </div>
-            <div class="product-card__content">
-              <h2 class="product-card__title">Espresso</h2>
-              <p class="product-card__description">Classic black coffee</p>
-              <p class="product-card__price">$4.50</p>
-            </div>
-          </article>
-
-          <article class="product-card product-card--additional">
-            <div class="product-card__image-box">
-              <img class="product-card__image" src="../assets/images/coffee-6.jpg" alt="Latte" width="340" height="340">
-            </div>
-            <div class="product-card__content">
-              <h2 class="product-card__title">Latte</h2>
-              <p class="product-card__description">Espresso coffee with the addition of steamed milk and dense milk foam</p>
-              <p class="product-card__price">$5.50</p>
-            </div>
-          </article>
-
-          <article class="product-card product-card--additional">
-            <div class="product-card__image-box">
-              <img class="product-card__image" src="../assets/images/coffee-7.jpg" alt="Latte macchiato" width="340" height="340">
-            </div>
-            <div class="product-card__content">
-              <h2 class="product-card__title">Latte macchiato</h2>
-              <p class="product-card__description">Espresso with frothed milk and chocolate</p>
-              <p class="product-card__price">$5.50</p>
-            </div>
-          </article>
-
-          <article class="product-card product-card--additional">
-            <div class="product-card__image-box">
-              <img class="product-card__image" src="../assets/images/coffee-8.jpg" alt="Coffee with cognac" width="340" height="340">
-            </div>
-            <div class="product-card__content">
-              <h2 class="product-card__title">Coffee with cognac</h2>
-              <p class="product-card__description">Fragrant black coffee with cognac and whipped cream</p>
-              <p class="product-card__price">$6.50</p>
-            </div>
-          </article>
-        </div>
-
-        <button class="menu__load-more" type="button" aria-label="Show more menu items">
+        <button
+          class="menu__load-more"
+          type="button"
+          aria-label="Show more menu items"
+          aria-controls="menu-products"
+          aria-expanded="false"
+          hidden
+        >
           <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24">
             <path d="M20 12a8 8 0 1 1-2.3-5.7L20 8.6"></path>
             <path d="M20 4v4.6h-4.6"></path>
@@ -216,6 +151,46 @@
         </button>
       </section>
     </main>
+
+    <dialog
+      class="product-modal"
+      aria-labelledby="product-modal-title"
+      aria-describedby="product-modal-description"
+    >
+      <div class="product-modal__layout">
+        <div class="product-modal__image-box"></div>
+
+        <div class="product-modal__content">
+          <h2 class="product-modal__title" id="product-modal-title"></h2>
+          <p class="product-modal__description" id="product-modal-description"></p>
+
+          <fieldset class="product-modal__options">
+            <legend class="product-modal__options-title">Size:</legend>
+            <div class="product-modal__option-list product-modal__sizes"></div>
+          </fieldset>
+
+          <fieldset class="product-modal__options">
+            <legend class="product-modal__options-title">Additives:</legend>
+            <div class="product-modal__option-list product-modal__additives"></div>
+          </fieldset>
+
+          <div class="product-modal__total">
+            <span>Total:</span>
+            <span class="product-modal__price" aria-live="polite"></span>
+          </div>
+
+          <p class="product-modal__note">
+            <svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16">
+              <circle cx="8" cy="8" r="6.5"></circle>
+              <path d="M8 7.2v3.6M8 4.7h.01"></path>
+            </svg>
+            <span>The cost is not final. Download our mobile app to see the final price and place your order.</span>
+          </p>
+
+          <button class="product-modal__close" type="button">Close</button>
+        </div>
+      </div>
+    </dialog>
 
     <footer class="footer container" id="contacts">
       <div class="footer__socials">
